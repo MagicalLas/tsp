@@ -13,6 +13,7 @@ class ContentRepository {
     }
 }
 
+// DI
 let adRepository = new AdRepository()
 let contentRepository = new ContentRepository()
 
@@ -43,10 +44,18 @@ class UseCase2 {
 
 // DTO를 use case의 인터페이스에 전부 사용한 경우 ==========
 
+class FeedItemDto {
+    isAd: boolean
+    title: string
+    from(feedItem: FeedItem) {
+        this.title = ""
+    }
+}
+
 class GetFeedResult {
-    items: FeedItem[]
+    items: FeedItemDto[]
     from(feedItems: FeedItem[]) {
-        this.items = feedItems
+        // convert FeedItem to FeedItemDto
     }
 }
 
@@ -54,7 +63,7 @@ class UseCase3 {
     getFeed(getFeedCommand: GetFeedCommand): GetFeedResult {
         let ads = adRepository.getAd()
         let contents = contentRepository.getContent()
-        
+
         let result = new GetFeedResult()
         result.from(ads.concat(contents))
         return result
