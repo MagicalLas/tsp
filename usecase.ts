@@ -104,7 +104,8 @@ class UseCase4 {
 
 // DTO를 use case의 인터페이스에 전부 사용한 경우
 // + cps 카테고리 가져오는 로직을 서비스로 만들고 싶은 경우
-
+// 서비스란? 어떤 도메인 객체에 속하지 않는 도메인 로직을 표현하는 방법입니다.
+// https://laswonho.medium.com/domain-service-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-334aad46ac59
 
 class CpsService {
     extractCategories(ads: Ad[]): string[] {
