@@ -75,10 +75,10 @@ class UseCase3 {
 // + cps 카테고리를 도메인 레이어에서 가져오고 싶은 경우
 
 class GetFeedResult1 {
-    items: FeedItem[]
+    items: FeedItemDto[]
     categories: string[]
     setItems(feedItems: FeedItem[]) {
-        this.items = feedItems
+        // convert FeedItem to FeedItemDto
     }
     setCategories(categories: string[]) {
         this.categories = categories
